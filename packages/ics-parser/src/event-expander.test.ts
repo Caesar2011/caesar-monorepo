@@ -76,7 +76,7 @@ describe('event-expander.test.ts', () => {
       }
       vi.mocked(expandRrule).mockReturnValue(createMockOccurrences())
 
-      const dates = getInclusionDates(mockEvent, dtstart, dtstart, rangeEnd, () => undefined)
+      const dates = getInclusionDates(mockEvent, dtstart, dtstart, rangeEnd, () => 42)
       expect(dates).toEqual(new Set([dtstart.toMillis(), occurrence2.toMillis(), rdate.toMillis()]))
     })
   })
@@ -90,7 +90,7 @@ describe('event-expander.test.ts', () => {
         { key: 'EXDATE', value: '20240301T100000Z', params: {} },
       ]
 
-      const dates = getExclusionDates(mockEvent, () => undefined)
+      const dates = getExclusionDates(mockEvent, () => 42)
       expect(dates).toEqual(new Set([exdate1.toMillis(), exdate2.toMillis()]))
     })
   })
@@ -196,7 +196,7 @@ describe('event-expander.test.ts', () => {
         subComponents: [],
       }
 
-      const details = extractEventDetails(event)
+      const details = extractEventDetails(event, () => 42)
 
       expect(details.uid).toBe('test-uid-123')
       expect(details.summary).toBe('Team Meeting')
@@ -216,13 +216,13 @@ describe('event-expander.test.ts', () => {
     })
 
     it('should generate a UID if missing and return "(No Summary)" for summary', () => {
-      const details = extractEventDetails(mockEvent)
+      const details = extractEventDetails(mockEvent, () => 42)
       expect(details.uid).toMatch(/^generated-0\.\d+$/)
       expect(details.summary).toBe('(No Summary)')
     })
 
     it('should return undefined for missing optional properties', () => {
-      const details = extractEventDetails(mockEvent)
+      const details = extractEventDetails(mockEvent, () => 42)
       expect(details.description).toBeUndefined()
       expect(details.location).toBeUndefined()
       expect(details.organizer).toBeUndefined()
@@ -239,7 +239,7 @@ describe('event-expander.test.ts', () => {
         { key: 'SUMMARY', value: 'Standard Event', params: {} },
       ]
 
-      const details = extractEventDetails(mockEvent)
+      const details = extractEventDetails(mockEvent, () => 42)
 
       expect(details.summary).toBe('Standard Event')
       expect(details.customProperties).toEqual({
