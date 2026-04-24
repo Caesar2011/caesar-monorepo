@@ -11,6 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "author": {
+    "name": "sebse"
+  },
   "scripts": {
     "build": "tsc -b",
     "dev": "tsc --watch",
