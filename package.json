@@ -1,0 +1,62 @@
+{
+  "name": "mcp-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "build:workspaces": "yarn workspaces foreach -A -p -t run build",
+    "dev": "yarn workspaces foreach -A -p -t run dev",
+    "test": "yarn workspaces foreach -A -p -t run test",
+    "test:changed": "node scripts/run-on-changed.ts test",
+    "test:watch": "yarn workspaces foreach -A -p -t run test:watch",
+    "test:coverage": "yarn workspaces foreach -A -p -t run test:coverage",
+    "lint:prettier": "prettier --write .",
+    "lint:eslint": "eslint --cache . --fix",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "lint-staged": "lint-staged",
+    "typecheck": "yarn workspaces foreach -A -p -t run typecheck",
+    "typecheck:changed": "node scripts/run-on-changed.ts typecheck",
+    "generate-readme": "yarn workspaces foreach -A -i -t run generate-readme",
+    "generate-readme:changed": "node scripts/run-on-changed.ts generate-readme --manual",
+    "prepare": "husky",
+    "clean": "yarn workspaces foreach -A -p -t run clean",
+    "cs:add": "changeset add",
+    "cs:version": "changeset version",
+    "cs:publish": "node scripts/update-workspace-versions.js && changeset publish"
+  },
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "description": "MCP Tools Monorepo with TypeScript support",
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@changesets/git": "^3.0.4",
+    "@changesets/write": "^0.4.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "husky": "^9.1.7",
+    "ignore": "^7.0.5",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "tsc-watch": "^7.2.0",
+    "types-package-json": "^2.0.39",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^4.1.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,mjs,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "packageManager": "yarn@4.12.0"
+}

@@ -1,0 +1,1 @@
+node scripts/create-changeset-from-commit.js "$1"

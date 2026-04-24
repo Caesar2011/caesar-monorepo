@@ -1,0 +1,31 @@
+echo "Running pre-commit checks..."
+
+echo "\n[1/4] Running lint-staged..."
+npx lint-staged
+if [ $? -ne 0 ]; then
+  echo "\nlint-staged failed. Aborting commit."
+  exit 1
+fi
+
+echo "\n[2/4] Running type-checking on changed packages..."
+yarn run typecheck:changed
+if [ $? -ne 0 ]; then
+  echo "\nType-checking failed. Aborting commit."
+  exit 1
+fi
+
+echo "\n[3/4] Running tests on changed packages..."
+yarn run test:changed
+if [ $? -ne 0 ]; then
+  echo "\nTests failed. Aborting commit."
+  exit 1
+fi
+
+echo "\n[4/4] Generating documentation for changed packages..."
+yarn run generate-readme:changed
+if [ $? -ne 0 ]; then
+  echo "\nDocumentation generation failed. Aborting commit."
+  exit 1
+fi
+
+echo "\n✓ Pre-commit checks passed."
