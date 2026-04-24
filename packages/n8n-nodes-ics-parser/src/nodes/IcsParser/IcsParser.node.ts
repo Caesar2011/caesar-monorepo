@@ -1,15 +1,14 @@
 import { prepare, getEventsBetween } from '@sebse-tools/ics-parser'
-import { NodeOperationError } from 'n8n-workflow'
-import { NodeConnectionTypes } from 'n8n-workflow/dist/esm/interfaces.js'
-
-import type {
-  IBinaryKeyData,
-  IDataObject,
-  IExecuteFunctions,
-  INodeExecutionData,
-  INodeType,
-  INodeTypeDescription,
+import {
+  type IBinaryKeyData,
+  type IDataObject,
+  type IExecuteFunctions,
+  type INodeExecutionData,
+  type INodeType,
+  type INodeTypeDescription,
 } from 'n8n-workflow'
+import { NodeOperationError } from 'n8n-workflow/dist/esm/index.js'
+import { NodeConnectionTypes } from 'n8n-workflow/dist/esm/interfaces.js'
 
 export class IcsParser implements INodeType {
   description: INodeTypeDescription = {
