@@ -1,5 +1,11 @@
 # @sebse-tools/n8n-nodes-ics-parser
 
+## 1.1.2
+
+### Patch Changes
+
+- acf198a: move n8n-workflow to dependencies
+
 ## 1.1.1
 
 ### Patch Changes
