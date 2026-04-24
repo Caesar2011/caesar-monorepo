@@ -27,16 +27,13 @@
     "generate-readme": "node ../../scripts/generate-readme.ts"
   },
   "dependencies": {
-    "@sebse-tools/ics-parser": "workspace:*"
+    "@sebse-tools/ics-parser": "workspace:*",
+    "n8n-workflow": "2.16.0"
   },
   "devDependencies": {
-    "n8n-workflow": "2.16.0",
     "rimraf": "^6.1.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
-  },
-  "peerDependencies": {
-    "n8n-workflow": "*"
   },
   "n8n": {
     "n8nNodesApiVersion": 1,

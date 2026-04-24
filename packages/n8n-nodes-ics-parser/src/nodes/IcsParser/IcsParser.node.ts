@@ -7,8 +7,8 @@ import {
   type INodeType,
   type INodeTypeDescription,
 } from 'n8n-workflow'
-import { NodeOperationError } from 'n8n-workflow/dist/esm/index.js'
-import { NodeConnectionTypes } from 'n8n-workflow/dist/esm/interfaces.js'
+import { NodeOperationError } from 'n8n-workflow'
+import { NodeConnectionTypes } from 'n8n-workflow'
 
 export class IcsParser implements INodeType {
   description: INodeTypeDescription = {

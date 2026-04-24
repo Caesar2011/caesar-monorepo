@@ -697,8 +697,6 @@ __metadata:
     rimraf: "npm:^6.1.3"
     typescript: "npm:^6.0.3"
     vitest: "npm:^4.1.5"
-  peerDependencies:
-    n8n-workflow: "*"
   languageName: unknown
   linkType: soft
 
