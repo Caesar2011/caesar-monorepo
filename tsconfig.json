@@ -3,9 +3,6 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": [
-    "scripts"
-  ],
   "references": [
     { "path": "./packages/ics-parser" },
   ]
