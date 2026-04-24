@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon'
 import { describe, it, expect } from 'vitest'
 
-import { expandRrule } from './rrule-expander'
-import { type RRuleOptions } from './types'
+import { expandRrule } from './rrule-expander.js'
+import { type RRuleOptions } from './types.js'
 
 /**
  * Helper function to collect all yielded DateTime objects from the expandRrule generator
@@ -12,9 +12,12 @@ import { type RRuleOptions } from './types'
  */
 const expandToArray = (options: RRuleOptions): string[] => {
   const results: string[] = []
-  // @ts-expect-error TS2802
   for (const dt of expandRrule(options)) {
-    results.push(dt.toUTC().toISO())
+    const iso = dt.toUTC().toISO()
+    if (!iso) {
+      throw new Error('Invalid date: ' + dt)
+    }
+    results.push(iso)
   }
   return results
 }
@@ -247,7 +250,6 @@ describe('expandRrule', () => {
         rangeEnd,
       }
       const results: DateTime[] = []
-      // @ts-expect-error Iterating works
       for (const dt of expandRrule(options)) {
         results.push(dt)
       }

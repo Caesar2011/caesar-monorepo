@@ -1,15 +1,15 @@
 import { DateTime } from 'luxon'
 import { describe, it, expect } from 'vitest'
 
-import { TimeZoneDefinitionNotFoundError, InvalidObservanceError } from './errors'
+import { TimeZoneDefinitionNotFoundError, InvalidObservanceError } from './errors.js'
 import {
   processVTimeZone,
   buildTimeZoneData,
   expandObservanceTransitions,
   findOffset,
   createTimeZoneResolver,
-} from './timezone-processor'
-import { type VComponent, type TimeZoneData, type TimeZoneObservance, type IcsProperty } from './types'
+} from './timezone-processor.js'
+import { type VComponent, type TimeZoneData, type TimeZoneObservance, type IcsProperty } from './types.js'
 
 // Helper to create a VComponent for testing
 const createVTimezoneComponent = (

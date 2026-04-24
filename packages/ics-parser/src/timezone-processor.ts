@@ -268,14 +268,12 @@ export function createTimeZoneResolver(tzData: Map<string, TimeZoneData>): TimeZ
     for (const zone of ianaZones) {
       // Priority 2: Check for native `Intl` support as a fallback.
       if (supportedIntlZones.has(zone)) {
-        console.log(`TZID '${tzid}' not in tzData, but found native support for alias '${zone}'.`)
         const strategy: ResolutionStrategy = { type: 'intl', zone }
         resolutionCache.set(tzid, strategy)
         return strategy
       }
     }
 
-    console.log(`No valid timezone definition or native support found for TZID '${tzid}'.`)
     const strategy: ResolutionStrategy = { type: 'notFound' }
     resolutionCache.set(tzid, strategy)
     return strategy
