@@ -1,5 +1,12 @@
 # @sebse-tools/n8n-nodes-ics-parser
 
+## 1.1.4
+
+### Patch Changes
+
+- 6271420: convert package to commonjs
+- 6271420: convert package to commonjs
+
 ## 1.1.3
 
 ### Patch Changes
