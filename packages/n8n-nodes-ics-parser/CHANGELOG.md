@@ -1,5 +1,11 @@
 # @sebse-tools/n8n-nodes-ics-parser
 
+## 1.1.1
+
+### Patch Changes
+
+- 0e17fb5: refactor n8n-workflow imports
+
 ## 1.1.0
 
 ### Minor Changes
