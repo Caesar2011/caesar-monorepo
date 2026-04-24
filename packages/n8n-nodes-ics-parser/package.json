@@ -1,6 +1,6 @@
 {
   "name": "@sebse-tools/n8n-nodes-ics-parser",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "description": "n8n node to parse ICS calendar files and query events",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
