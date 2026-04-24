@@ -1,6 +1,6 @@
 {
   "name": "@sebse-tools/ics-parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Full RFC 5545 iCalendar implementation. Parse, prepare, expand, and query .ics data with complete RRULE support, DST-aware timezone resolution, and serialize/deserialize caching",
   "main": "dist/index.js",
