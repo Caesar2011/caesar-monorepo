@@ -1,5 +1,12 @@
 # @sebse-tools/n8n-nodes-ics-parser
 
+## 2.0.0
+
+### Major Changes
+
+- caaf6c3: streamline node into a single operation
+- caaf6c3: streamline node into a single operation
+
 ## 1.1.4
 
 ### Patch Changes
