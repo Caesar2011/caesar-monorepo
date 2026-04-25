@@ -26,8 +26,10 @@
     "generate-readme": "node ../../scripts/generate-readme.ts"
   },
   "dependencies": {
-    "@sebse-tools/ics-parser": "workspace:*",
-    "n8n-workflow": "2.16.0"
+    "@sebse-tools/ics-parser": "workspace:*"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
   },
   "devDependencies": {
     "cpy-cli": "^7.0.0",
