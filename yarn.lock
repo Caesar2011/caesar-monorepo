@@ -3062,6 +3062,9 @@ __metadata:
     vitest: "npm:^4.1.5"
   peerDependencies:
     n8n-workflow: "*"
+  peerDependenciesMeta:
+    n8n-workflow:
+      optional: true
   languageName: unknown
   linkType: soft
 
