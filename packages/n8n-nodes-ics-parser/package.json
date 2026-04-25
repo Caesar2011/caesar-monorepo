@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "cpy-cli": "^7.0.0",
+    "n8n-workflow": "*",
     "rimraf": "^6.1.3",
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
