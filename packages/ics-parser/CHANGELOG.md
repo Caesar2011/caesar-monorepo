@@ -1,5 +1,12 @@
 # @sebse-tools/ics-parser
 
+## 2.0.1
+
+### Patch Changes
+
+- a6e5800: move n8n-workflow to peerDependencies
+- a6e5800: move n8n-workflow to peerDependencies
+
 ## 2.0.0
 
 ### Major Changes
