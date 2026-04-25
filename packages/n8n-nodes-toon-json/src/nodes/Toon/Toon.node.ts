@@ -240,6 +240,36 @@ function toonToJson(toonText: string): unknown {
   return parsed
 }
 
+/** Resolve JSON input: field name string, plain object, or JSON string. */
+function resolveJsonInput(raw: unknown, fieldName: string, itemJson: IDataObject): unknown {
+  // Object passed directly via expression
+  if (raw && typeof raw === 'object') return raw
+
+  if (typeof raw === 'string') {
+    // Try parse as JSON string first
+    const trimmed = raw.trim()
+    if ((trimmed.startsWith('{') && trimmed.endsWith('}')) || (trimmed.startsWith('[') && trimmed.endsWith(']'))) {
+      try {
+        return JSON.parse(trimmed)
+      } catch {
+        /* fall through — treat as field name */
+      }
+    }
+
+    // Treat as field name
+    const fieldValue = itemJson[trimmed]
+    if (fieldValue === undefined) {
+      throw new NodeOperationError({ name: 'TOON Converter' } as never, `Field '${trimmed}' not found on input item`)
+    }
+    return fieldValue
+  }
+
+  throw new NodeOperationError(
+    { name: 'TOON Converter' } as never,
+    `Input '${fieldName}' must be a field name, JSON object, or JSON string`,
+  )
+}
+
 // ==========================================================
 // Node
 // ==========================================================
@@ -277,13 +307,17 @@ export class Toon implements INodeType {
         ],
         default: 'jsonToToon',
       },
+
+      // JSON → TOON
       {
-        displayName: 'Input Field',
-        name: 'inputField',
+        displayName: 'JSON Input',
+        name: 'jsonInput',
         type: 'string',
         default: 'data',
         required: true,
-        description: 'Name of the input item field to read from',
+        displayOptions: { show: { operation: ['jsonToToon'] } },
+        description: 'Field name on the input item, a JSON object, or a raw JSON string',
+        hint: 'e.g. "data", {{ $json.myField }}, or a raw JSON string',
       },
       {
         displayName: 'Output Field',
@@ -291,7 +325,19 @@ export class Toon implements INodeType {
         type: 'string',
         default: 'toon',
         required: true,
-        description: 'Name of the output item field to write the result to',
+        displayOptions: { show: { operation: ['jsonToToon'] } },
+        description: 'Name of the output field to write the TOON string to',
+      },
+
+      // TOON → JSON
+      {
+        displayName: 'Input Field',
+        name: 'inputField',
+        type: 'string',
+        default: 'toon',
+        required: true,
+        displayOptions: { show: { operation: ['toonToJson'] } },
+        description: 'Name of the field on the input item containing the TOON string',
       },
     ],
   }
@@ -303,20 +349,29 @@ export class Toon implements INodeType {
     for (let i = 0; i < items.length; i++) {
       try {
         const operation = this.getNodeParameter('operation', i) as string
-        const inputField = this.getNodeParameter('inputField', i) as string
-        const outputField = this.getNodeParameter('outputField', i) as string
-        const inputValue = items[i].json[inputField]
-
-        let result: unknown
 
         if (operation === 'jsonToToon') {
-          if (inputValue === undefined) {
-            throw new NodeOperationError(this.getNode(), `Field '${inputField}' not found on input item`, {
-              itemIndex: i,
-            })
+          const jsonInput = this.getNodeParameter('jsonInput', i)
+          const outputField = this.getNodeParameter('outputField', i) as string
+
+          let resolved: unknown
+          try {
+            resolved = resolveJsonInput(jsonInput, 'jsonInput', items[i].json)
+          } catch (e) {
+            throw new NodeOperationError(this.getNode(), (e as Error).message, { itemIndex: i })
           }
-          result = jsonToToon(inputValue)
+
+          const toon = jsonToToon(resolved)
+
+          const executionData = this.helpers.constructExecutionMetaData(
+            this.helpers.returnJsonArray([{ ...items[i].json, [outputField]: toon } as IDataObject]),
+            { itemData: { item: i } },
+          )
+          returnData.push(...executionData)
         } else {
+          const inputField = this.getNodeParameter('inputField', i) as string
+          const inputValue = items[i].json[inputField]
+
           if (typeof inputValue !== 'string') {
             throw new NodeOperationError(
               this.getNode(),
@@ -324,14 +379,15 @@ export class Toon implements INodeType {
               { itemIndex: i },
             )
           }
-          result = toonToJson(inputValue)
-        }
 
-        const executionData = this.helpers.constructExecutionMetaData(
-          this.helpers.returnJsonArray([{ ...items[i].json, [outputField]: result } as IDataObject]),
-          { itemData: { item: i } },
-        )
-        returnData.push(...executionData)
+          const parsed = toonToJson(inputValue)
+
+          const executionData = this.helpers.constructExecutionMetaData(
+            this.helpers.returnJsonArray([parsed as IDataObject]),
+            { itemData: { item: i } },
+          )
+          returnData.push(...executionData)
+        }
       } catch (error) {
         if (this.continueOnFail()) {
           returnData.push({ json: { error: (error as Error).message }, pairedItem: { item: i } })
