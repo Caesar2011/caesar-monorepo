@@ -74,18 +74,16 @@ export class IcsParser implements INodeType {
         displayName: 'Start Date',
         name: 'startDate',
         type: 'dateTime',
-        default: '',
-        required: true,
-        description: 'Start of the date range, inclusive',
+        default: '1970-01-01T00:00:00.000Z',
+        description: 'Start of the date range, inclusive. Defaults to 1970-01-01.',
       },
 
       {
         displayName: 'End Date',
         name: 'endDate',
         type: 'dateTime',
-        default: '',
-        required: true,
-        description: 'End of the date range, inclusive',
+        default: '3000-12-31T23:59:59.000Z',
+        description: 'End of the date range, inclusive. Defaults to 3000-12-31.',
       },
     ],
   }
@@ -121,8 +119,8 @@ export class IcsParser implements INodeType {
           }
         }
 
-        const startRaw = this.getNodeParameter('startDate', i) as string
-        const endRaw = this.getNodeParameter('endDate', i) as string
+        const startRaw = (this.getNodeParameter('startDate', i) as string) || '1970-01-01T00:00:00.000Z'
+        const endRaw = (this.getNodeParameter('endDate', i) as string) || '3000-12-31T23:59:59.000Z'
 
         // n8n dateTime parameters return ISO strings; slice to YYYY-MM-DD
         const startDate = new Date(startRaw).toISOString().slice(0, 10)
