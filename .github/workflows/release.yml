@@ -67,7 +67,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Build Project
-        run: yarn build
+        run: yarn build:workspaces
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
