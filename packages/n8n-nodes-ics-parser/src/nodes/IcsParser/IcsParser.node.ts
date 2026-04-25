@@ -75,7 +75,7 @@ export class IcsParser implements INodeType {
         name: 'startDate',
         type: 'dateTime',
         default: '1970-01-01T00:00:00.000Z',
-        description: 'Start of the date range, inclusive. Defaults to 1970-01-01.',
+        description: 'Start of the date range (inclusive). Defaults to 1970-01-01.',
       },
 
       {
@@ -83,7 +83,7 @@ export class IcsParser implements INodeType {
         name: 'endDate',
         type: 'dateTime',
         default: '3000-12-31T23:59:59.000Z',
-        description: 'End of the date range, inclusive. Defaults to 3000-12-31.',
+        description: 'End of the date range (inclusive). Defaults to 3000-12-31.',
       },
     ],
   }
