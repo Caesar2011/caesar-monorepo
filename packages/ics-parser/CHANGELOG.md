@@ -1,5 +1,11 @@
 # @sebse-tools/ics-parser
 
+## 2.0.0
+
+### Major Changes
+
+- 6e9bfb2: rename monorepo and unscope n8n package
+
 ## 1.0.2
 
 ### Patch Changes

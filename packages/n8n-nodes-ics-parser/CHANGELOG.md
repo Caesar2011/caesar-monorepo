@@ -1,5 +1,16 @@
 # n8n-nodes-ics-parser
 
+## 3.0.0
+
+### Major Changes
+
+- 6e9bfb2: rename monorepo and unscope n8n package
+
+### Patch Changes
+
+- Updated dependencies [6e9bfb2]
+  - @sebse-tools/ics-parser@2.0.0
+
 ## 2.0.0
 
 ### Major Changes
