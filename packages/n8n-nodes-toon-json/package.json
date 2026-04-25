@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-toon-json",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "n8n node to convert between JSON and TOON (Token-Oriented Object Notation)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
