@@ -1,5 +1,11 @@
 # n8n-nodes-ics-parser
 
+## 3.0.2
+
+### Patch Changes
+
+- 49c86bc: move n8n-workflow to optional peerDependencies
+
 ## 3.0.1
 
 ### Patch Changes
