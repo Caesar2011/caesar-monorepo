@@ -1,5 +1,11 @@
 # n8n-nodes-ics-parser
 
+## 3.1.0
+
+### Minor Changes
+
+- c8401d3: make start and end dates optional
+
 ## 3.0.2
 
 ### Patch Changes
