@@ -6,6 +6,6 @@
   "references": [
     { "path": "./packages/ics-parser" },
     { "path": "./packages/n8n-nodes-ics-parser" },
-    { "path": "./packages/n8n-nodes-toon" }
+    { "path": "./packages/n8n-nodes-toon-json" }
   ]
 }

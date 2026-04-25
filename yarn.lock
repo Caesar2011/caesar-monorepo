@@ -3068,9 +3068,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"n8n-nodes-toon@workspace:packages/n8n-nodes-toon":
+"n8n-nodes-toon-json@workspace:packages/n8n-nodes-toon-json":
   version: 0.0.0-use.local
-  resolution: "n8n-nodes-toon@workspace:packages/n8n-nodes-toon"
+  resolution: "n8n-nodes-toon-json@workspace:packages/n8n-nodes-toon-json"
   dependencies:
     cpy-cli: "npm:^7.0.0"
     n8n-workflow: "npm:*"
