@@ -1,4 +1,4 @@
-# @sebse-tools/n8n-nodes-ics-parser
+# n8n-nodes-ics-parser
 
 ## 2.0.0
 

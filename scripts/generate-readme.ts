@@ -7,7 +7,7 @@ import { join, basename } from 'node:path'
  * The base URL of your GitHub repository.
  * @example 'https://github.com/my-org/my-repo'
  */
-const REPO_BASE_URL = 'https://github.com/Caesar2011/mcp-monorepo'
+const REPO_BASE_URL = 'https://github.com/Caesar2011/caesar-monorepo'
 
 // --- ANSI Colors for Logging ---
 const c = {
@@ -153,7 +153,7 @@ function generateEnvSection(envVars: EnvVar[] | undefined): string | undefined {
 function generateFooter(pkgJson: PackageJson): string {
   const authorName = typeof pkgJson.author === 'object' ? pkgJson.author.name : pkgJson.author
   const licenseText = pkgJson.license
-    ? `This project is licensed under the ${pkgJson.license} License. See the [LICENSE](./LICENSE) file for details.`
+    ? `This project is licensed under the ${pkgJson.license} License. See the [LICENSE](${REPO_BASE_URL}/blob/main/LICENSE) file for details.`
     : ''
   return `---
 ## Authors

@@ -1,5 +1,5 @@
 {
-  "name": "mcp-monorepo",
+  "name": "caesar-monorepo",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -47,7 +47,6 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "tsc-watch": "^7.2.0",
-    "types-package-json": "^2.0.39",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.0",
     "vitest": "^4.1.5"

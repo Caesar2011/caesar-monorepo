@@ -688,19 +688,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sebse-tools/n8n-nodes-ics-parser@workspace:packages/n8n-nodes-ics-parser":
-  version: 0.0.0-use.local
-  resolution: "@sebse-tools/n8n-nodes-ics-parser@workspace:packages/n8n-nodes-ics-parser"
-  dependencies:
-    "@sebse-tools/ics-parser": "workspace:*"
-    cpy-cli: "npm:^7.0.0"
-    n8n-workflow: "npm:2.16.0"
-    rimraf: "npm:^6.1.3"
-    typescript: "npm:^6.0.3"
-    vitest: "npm:^4.1.5"
-  languageName: unknown
-  linkType: soft
-
 "@sindresorhus/merge-streams@npm:^4.0.0":
   version: 4.0.0
   resolution: "@sindresorhus/merge-streams@npm:4.0.0"
@@ -1353,6 +1340,31 @@ __metadata:
   checksum: 10c0/7c6dfd30c338d2997ba77500539227b9d1f85e388a5f43220865201e407e076783d0881f2d297b9f80951b4c957fcf0b51c1d2d24227631643c3f7c284b0aa04
   languageName: node
   linkType: hard
+
+"caesar-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "caesar-monorepo@workspace:."
+  dependencies:
+    "@changesets/cli": "npm:^2.31.0"
+    "@changesets/git": "npm:^3.0.4"
+    "@changesets/write": "npm:^0.4.0"
+    "@eslint/js": "npm:^10.0.1"
+    "@types/node": "npm:^25.6.0"
+    eslint: "npm:^10.2.1"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-import-resolver-typescript: "npm:^4.4.4"
+    eslint-plugin-import-x: "npm:^4.16.2"
+    eslint-plugin-unused-imports: "npm:^4.4.1"
+    husky: "npm:^9.1.7"
+    ignore: "npm:^7.0.5"
+    lint-staged: "npm:^16.4.0"
+    prettier: "npm:^3.8.3"
+    tsc-watch: "npm:^7.2.0"
+    typescript: "npm:^6.0.3"
+    typescript-eslint: "npm:^8.59.0"
+    vitest: "npm:^4.1.5"
+  languageName: unknown
+  linkType: soft
 
 "call-bind-apply-helpers@npm:^1.0.1, call-bind-apply-helpers@npm:^1.0.2":
   version: 1.0.2
@@ -2940,32 +2952,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mcp-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "mcp-monorepo@workspace:."
-  dependencies:
-    "@changesets/cli": "npm:^2.31.0"
-    "@changesets/git": "npm:^3.0.4"
-    "@changesets/write": "npm:^0.4.0"
-    "@eslint/js": "npm:^10.0.1"
-    "@types/node": "npm:^25.6.0"
-    eslint: "npm:^10.2.1"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-import-resolver-typescript: "npm:^4.4.4"
-    eslint-plugin-import-x: "npm:^4.16.2"
-    eslint-plugin-unused-imports: "npm:^4.4.1"
-    husky: "npm:^9.1.7"
-    ignore: "npm:^7.0.5"
-    lint-staged: "npm:^16.4.0"
-    prettier: "npm:^3.8.3"
-    tsc-watch: "npm:^7.2.0"
-    types-package-json: "npm:^2.0.39"
-    typescript: "npm:^6.0.3"
-    typescript-eslint: "npm:^8.59.0"
-    vitest: "npm:^4.1.5"
-  languageName: unknown
-  linkType: soft
-
 "md5@npm:2.3.0":
   version: 2.3.0
   resolution: "md5@npm:2.3.0"
@@ -3062,6 +3048,19 @@ __metadata:
   checksum: 10c0/d924b57e7312b3b63ad21fc5b3dc0af5e78d61a1fc7cfb5457edaf26326bf62be5307cc87ffb6862ef1c2b33b0233cdb5d4f01c4c958cc0d660948b65a287a48
   languageName: node
   linkType: hard
+
+"n8n-nodes-ics-parser@workspace:packages/n8n-nodes-ics-parser":
+  version: 0.0.0-use.local
+  resolution: "n8n-nodes-ics-parser@workspace:packages/n8n-nodes-ics-parser"
+  dependencies:
+    "@sebse-tools/ics-parser": "workspace:*"
+    cpy-cli: "npm:^7.0.0"
+    n8n-workflow: "npm:2.16.0"
+    rimraf: "npm:^6.1.3"
+    typescript: "npm:^6.0.3"
+    vitest: "npm:^4.1.5"
+  languageName: unknown
+  linkType: soft
 
 "n8n-workflow@npm:2.16.0":
   version: 2.16.0
@@ -4018,13 +4017,6 @@ __metadata:
   dependencies:
     prelude-ls: "npm:^1.2.1"
   checksum: 10c0/7b3fd0ed43891e2080bf0c5c504b418fbb3e5c7b9708d3d015037ba2e6323a28152ec163bcb65212741fa5d2022e3075ac3c76440dbd344c9035f818e8ecee58
-  languageName: node
-  linkType: hard
-
-"types-package-json@npm:^2.0.39":
-  version: 2.0.39
-  resolution: "types-package-json@npm:2.0.39"
-  checksum: 10c0/266040fda3cbfa70df550ccbee1a9cce3b26711f7a86511398e0c3059aa57b97cdb5be97ad8bdcfb84649f535930bbace328834ea28c31853252ed39588571d6
   languageName: node
   linkType: hard
 
